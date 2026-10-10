@@ -311,7 +311,8 @@ def test_per_actor_rate_limit(env):
 
 
 def test_empty_mention_gets_greeting(env):
-    env.post(create('<p><span class="h-card"><a href="https://gpu.social/@gpu">@<span>gpu</span></a></span></p>'))
+    env.post(create('<p><span class="h-card">'
+                    '<a href="https://gpu.social/@gpu">@<span>gpu</span></a></span></p>'))
     assert env.chat.calls == []
     assert "Ask me anything" in env.delivered[0][1]["object"]["content"]
 
